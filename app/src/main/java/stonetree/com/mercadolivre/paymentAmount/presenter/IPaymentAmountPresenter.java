@@ -4,6 +4,8 @@ public interface IPaymentAmountPresenter {
 
     void onCreate();
 
+    void loadCheckout();
+
     void proceedWithPayment(long amountToPay);
 
     void setupNetworkStateReceiver();

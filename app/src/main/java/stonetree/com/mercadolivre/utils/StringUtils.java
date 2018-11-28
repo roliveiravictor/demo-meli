@@ -8,7 +8,7 @@ public class StringUtils {
         final StringBuilder builder = new StringBuilder();
         for (String s: params) {
             if(s.contains(Constants.QUERY_SELECTOR)) {
-                s = s.replace(Constants.QUERY_SELECTOR, Constants.EMPTY);
+                s = s.replace(Constants.QUERY_SELECTOR, Constants.EMPTY_SEQUENCE);
                 builder.append("&" + s + "=");
             } else {
                 builder.append(s);

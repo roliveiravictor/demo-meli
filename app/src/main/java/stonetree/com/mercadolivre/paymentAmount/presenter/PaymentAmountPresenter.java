@@ -1,8 +1,11 @@
 package stonetree.com.mercadolivre.paymentAmount.presenter;
 
+import android.content.DialogInterface;
 import android.content.IntentFilter;
+import android.view.Gravity;
 import android.widget.Toast;
 
+import stonetree.com.mercadolivre.R;
 import stonetree.com.mercadolivre.core.model.Error;
 import stonetree.com.mercadolivre.network.INetworkStateReceiver;
 import stonetree.com.mercadolivre.network.NetworkStateReceiver;
@@ -12,6 +15,8 @@ import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethodsResponse;
 import stonetree.com.mercadolivre.paymentMethods.provider.IPaymentMethodsProvider;
 import stonetree.com.mercadolivre.paymentMethods.provider.PaymentMethodsProvider;
 import stonetree.com.mercadolivre.session.Session;
+import stonetree.com.mercadolivre.utils.Collections;
+import stonetree.com.mercadolivre.utils.DialogUtils;
 import stonetree.com.mercadolivre.utils.ToastUtils;
 
 public class PaymentAmountPresenter implements IPaymentAmountPresenter, INetworkStateReceiver {
@@ -28,6 +33,26 @@ public class PaymentAmountPresenter implements IPaymentAmountPresenter, INetwork
     @Override
     public void onCreate() {
         setupNetworkStateReceiver();
+        loadCheckout();
+    }
+
+    @Override
+    public void loadCheckout() {
+        if (!Collections.isNullOrEmpty(Session.getInstance().getQuota())) {
+            final String title = view.getString(R.string.checkout_title);
+            final String positiveMessage = view.getString(R.string.checkout_ok);
+
+            DialogUtils.showMessage(view, title, positiveMessage, getPositiveListener(), Gravity.CENTER);
+        }
+    }
+
+    private DialogInterface.OnClickListener getPositiveListener() {
+        return new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int buttonOption) {
+                Session.getInstance().purge();
+            }
+        };
     }
 
     @Override

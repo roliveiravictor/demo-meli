@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rowLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/amountLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/margin_10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:text="@string/dialog_checkout_total"
+                android:textColor="@color/ml_warm_grey_two"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/amountToPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/ml_warm_grey_two"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/quotaLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/margin_10dp">
+
+            <TextView
+                android:id="@+id/quota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/ml_warm_grey_two"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/issuerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="@dimen/margin_10dp">
+
+            <ImageView
+                android:id="@+id/issuerThumbnail"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <ImageView
+                android:id="@+id/cardThumbnail"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/ic_launcher" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

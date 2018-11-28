@@ -14,9 +14,9 @@
         app:SpinKit_Color="@color/colorPrimary" />
 
     <LinearLayout
+        android:id="@+id/rootLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rootLayout"
         android:orientation="vertical">
 
         <TextView
@@ -34,7 +34,8 @@
             android:layout_marginTop="@dimen/margin_10dp"
             android:gravity="center_horizontal"
             android:hint=""
-            android:inputType="number" />
+            android:inputType="number"
+            android:maxLength="5" />
 
         <Button
             android:id="@+id/pay"

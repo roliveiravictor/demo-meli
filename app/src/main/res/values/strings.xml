@@ -7,4 +7,9 @@
     <string name="card_issuer_select">Select Card Issuer</string>
     <string name="quotas_selection_select">Select Quotas Amount</string>
     <string name="quotas_selection_button">Checkout</string>
+    <string name="checkout_title">Checkout Overview</string>
+    <string name="checkout_ok">OK</string>
+    <string name="dialog_checkout_total">Total To Pay: </string>
+    <string name="dialog_checkout_quotas">Quotas: </string>
+
 </resources>

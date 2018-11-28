@@ -12,6 +12,12 @@ public final class IntentStarterUtils {
         activity.startActivity(intent);
     }
 
+    public static void goFromToWithClearedHistory(Activity activity, Class clazz) {
+        Intent intent = new Intent(activity.getApplicationContext(), clazz);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        activity.startActivity(intent);
+    }
+
     public static void goFromWithExtraBundleTo(Activity activity, Class clazz, Bundle bundle) {
         Intent intent = new Intent(activity.getApplicationContext(), clazz);
         intent.putExtras(bundle);

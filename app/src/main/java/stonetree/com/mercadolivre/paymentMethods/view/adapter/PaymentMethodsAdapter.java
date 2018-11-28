@@ -1,6 +1,7 @@
 package stonetree.com.mercadolivre.paymentMethods.view.adapter;
 
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethod;
 import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethodsResponse;
 import stonetree.com.mercadolivre.paymentMethods.presenter.PaymentMethodsPresenter;
 import stonetree.com.mercadolivre.paymentMethods.view.PaymentMethodsActivity;
+import stonetree.com.mercadolivre.session.Session;
 import stonetree.com.mercadolivre.tasks.ImageDownloaderCallback;
 import stonetree.com.mercadolivre.tasks.ImageDownloaderTask;
 
@@ -68,6 +70,11 @@ public class PaymentMethodsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View selectedCard) {
+                final BitmapDrawable drawable = (BitmapDrawable) holder.thumbnail.getDrawable();
+                final Bitmap bitmap = drawable.getBitmap();
+
+                Session.getInstance().setCreditThumbnail(bitmap);
+
                 final String methodId = paymentMethod.getId();
                 presenter.storePaymentMethod(methodId);
                 presenter.proceedWithCardIssuers();

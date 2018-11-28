@@ -1,6 +1,7 @@
 package stonetree.com.mercadolivre.cardIssuers.view.adapter;
 
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import stonetree.com.mercadolivre.cardIssuers.model.CardIssuer;
 import stonetree.com.mercadolivre.cardIssuers.model.CardIssuersResponse;
 import stonetree.com.mercadolivre.cardIssuers.presenter.CardIssuersPresenter;
 import stonetree.com.mercadolivre.cardIssuers.view.CardIssuersActivity;
+import stonetree.com.mercadolivre.session.Session;
 import stonetree.com.mercadolivre.tasks.ImageDownloaderCallback;
 import stonetree.com.mercadolivre.tasks.ImageDownloaderTask;
 
@@ -68,6 +70,11 @@ public class CardIssuersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View selectedCard) {
+                final BitmapDrawable drawable = (BitmapDrawable) holder.thumbnail.getDrawable();
+                final Bitmap bitmap = drawable.getBitmap();
+
+                Session.getInstance().setIssuerThumbnail(bitmap);
+
                 final String issuerId = cardIssuer.getId();
                 presenter.storeCardIssuer(issuerId);
                 presenter.proceedWithQuotasSelection();

@@ -11,7 +11,7 @@ import java.util.List;
 
 import stonetree.com.mercadolivre.R;
 import stonetree.com.mercadolivre.core.view.CoreActivity;
-import stonetree.com.mercadolivre.paymentAmount.model.PaymentAmount;
+import stonetree.com.mercadolivre.paymentAmount.view.PaymentAmountActivity;
 import stonetree.com.mercadolivre.quotas.presenter.QuotasSelectionPresenter;
 import stonetree.com.mercadolivre.utils.IntentStarterUtils;
 
@@ -78,7 +78,7 @@ public class QuotasSelectionActivity extends CoreActivity {
     }
 
     public void proceedToCheckout() {
-        IntentStarterUtils.goFromTo(this, PaymentAmount.class);
+        IntentStarterUtils.goFromToWithClearedHistory(this, PaymentAmountActivity.class);
     }
 }
 
