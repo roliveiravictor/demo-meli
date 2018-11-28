@@ -9,9 +9,10 @@ import stonetree.com.mercadolivre.network.NetworkStateReceiver;
 import stonetree.com.mercadolivre.paymentAmount.model.PaymentAmount;
 import stonetree.com.mercadolivre.paymentAmount.view.PaymentAmountActivity;
 import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethodsResponse;
-import stonetree.com.mercadolivre.provider.IPaymentMethodsProvider;
-import stonetree.com.mercadolivre.provider.PaymentMethodsProvider;
+import stonetree.com.mercadolivre.paymentMethods.provider.IPaymentMethodsProvider;
+import stonetree.com.mercadolivre.paymentMethods.provider.PaymentMethodsProvider;
 import stonetree.com.mercadolivre.session.Session;
+import stonetree.com.mercadolivre.utils.ToastUtils;
 
 public class PaymentAmountPresenter implements IPaymentAmountPresenter, INetworkStateReceiver {
 
@@ -36,13 +37,13 @@ public class PaymentAmountPresenter implements IPaymentAmountPresenter, INetwork
         new PaymentMethodsProvider().getPaymentMethods(new IPaymentMethodsProvider() {
             @Override
             public void onSuccess(PaymentMethodsResponse response) {
-                view.hideLoading();
                 view.proceedToCreditCardSelection(response);
+                view.hideLoading();
             }
 
             @Override
             public void onFailure(Error response) {
-                Toast.makeText(view.getApplicationContext(), response.getToastMessage(), Toast.LENGTH_LONG);
+                ToastUtils.show(view, response.getToastMessage(), Toast.LENGTH_LONG);
                 view.hideLoading();
             }
         });

@@ -15,6 +15,7 @@ import stonetree.com.mercadolivre.enums.Query;
 import stonetree.com.mercadolivre.provider.CoreProvider;
 import stonetree.com.mercadolivre.provider.ICoreProvider;
 import stonetree.com.mercadolivre.session.Session;
+import stonetree.com.mercadolivre.utils.Collections;
 
 public class CardIssuersProvider extends CoreProvider {
 
@@ -35,9 +36,13 @@ public class CardIssuersProvider extends CoreProvider {
             @Override
             public void onSuccess(final String response) {
                 final List<CardIssuer> cardIssuers = new Gson().fromJson(response, getJsonType());
-                final CardIssuersResponse cardIssuersResponse = new CardIssuersResponse();
-                cardIssuersResponse.getCardIssuers().addAll(cardIssuers);
-                callback.onSuccess(cardIssuersResponse);
+                if (Collections.isNullOrEmpty(cardIssuers)) {
+                    callback.onFailure(Error.getDefault());
+                } else {
+                    final CardIssuersResponse cardIssuersResponse = new CardIssuersResponse();
+                    cardIssuersResponse.getCardIssuers().addAll(cardIssuers);
+                    callback.onSuccess(cardIssuersResponse);
+                }
             }
 
             @Override

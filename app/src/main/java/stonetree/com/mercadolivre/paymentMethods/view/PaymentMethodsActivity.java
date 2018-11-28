@@ -1,6 +1,5 @@
 package stonetree.com.mercadolivre.paymentMethods.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -55,11 +54,8 @@ public class PaymentMethodsActivity extends CoreActivity {
     }
 
     public void proceedToCardIssuerSelection(CardIssuersResponse response) {
-        final Intent intent = new Intent();
         final Bundle bundle = new Bundle();
-
         bundle.putSerializable(Constants.CARD_ISSUERS_RESPONSE, response);
-        intent.putExtras(bundle);
 
         IntentStarterUtils.goFromWithExtraBundleTo(this, CardIssuersActivity.class, bundle);
     }

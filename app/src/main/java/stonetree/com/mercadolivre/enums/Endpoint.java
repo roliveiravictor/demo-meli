@@ -14,4 +14,6 @@ public @interface Endpoint {
     String PAYMENT_METHODS = "https://api.mercadopago.com/v1/payment_methods";
     String CARD_ISSUERS = "https://api.mercadopago.com/v1/payment_methods/card_issuers";
 
+    String QUOTAS_SELECTION = "https://api.mercadopago.com/v1/payment_methods/installments";
+
 }

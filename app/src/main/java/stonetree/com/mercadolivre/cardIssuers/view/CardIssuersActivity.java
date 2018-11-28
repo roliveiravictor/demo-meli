@@ -7,7 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import stonetree.com.mercadolivre.R;
 import stonetree.com.mercadolivre.cardIssuers.presenter.CardIssuersPresenter;
 import stonetree.com.mercadolivre.cardIssuers.view.adapter.CardIssuersAdapter;
+import stonetree.com.mercadolivre.constants.Constants;
 import stonetree.com.mercadolivre.core.view.CoreActivity;
+import stonetree.com.mercadolivre.quotas.model.QuotasSelectionResponse;
 import stonetree.com.mercadolivre.quotas.view.QuotasSelectionActivity;
 import stonetree.com.mercadolivre.utils.IntentStarterUtils;
 
@@ -51,8 +53,11 @@ public class CardIssuersActivity extends CoreActivity {
 
     }
 
-    public void proceedToQuotasSelection() {
-        IntentStarterUtils.goFromTo(this, QuotasSelectionActivity.class);
+    public void proceedToQuotasSelection(QuotasSelectionResponse response) {
+        final Bundle bundle = new Bundle();
+        bundle.putSerializable(Constants.QUOTAS_SELECTION_RESPONSE, response);
+
+        IntentStarterUtils.goFromWithExtraBundleTo(this, QuotasSelectionActivity.class, bundle);
     }
 
 }

@@ -8,6 +8,7 @@ public class Session {
 
     private String paymentMethod;
     private String cardIssuer;
+    private String quota;
 
     private boolean networkOnline;
 
@@ -44,6 +45,14 @@ public class Session {
 
     public boolean isNetworkOnline() {
         return networkOnline;
+    }
+
+    public String getQuota() {
+        return quota;
+    }
+
+    public void setQuota(String quota) {
+        this.quota = quota;
     }
 
     public void setNetworkOnline(boolean networkOnline) {

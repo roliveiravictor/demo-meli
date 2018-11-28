@@ -2,16 +2,17 @@ package stonetree.com.mercadolivre.paymentMethods.presenter;
 
 import android.widget.Toast;
 
-import stonetree.com.mercadolivre.constants.Constants;
-import stonetree.com.mercadolivre.core.model.Error;
 import stonetree.com.mercadolivre.cardIssuers.model.CardIssuersResponse;
-import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethods;
-import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethodsResponse;
 import stonetree.com.mercadolivre.cardIssuers.provider.CardIssuersProvider;
 import stonetree.com.mercadolivre.cardIssuers.provider.ICardIssuersProvider;
+import stonetree.com.mercadolivre.constants.Constants;
+import stonetree.com.mercadolivre.core.model.Error;
+import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethods;
+import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethodsResponse;
 import stonetree.com.mercadolivre.paymentMethods.view.PaymentMethodsActivity;
 import stonetree.com.mercadolivre.paymentMethods.view.adapter.PaymentMethodsAdapter;
 import stonetree.com.mercadolivre.session.Session;
+import stonetree.com.mercadolivre.utils.ToastUtils;
 
 public class PaymentMethodsPresenter implements IPaymentMethodsPresenter {
 
@@ -54,7 +55,7 @@ public class PaymentMethodsPresenter implements IPaymentMethodsPresenter {
 
             @Override
             public void onFailure(Error response) {
-                Toast.makeText(view.getApplicationContext(), response.getToastMessage(), Toast.LENGTH_LONG);
+                ToastUtils.show(view, response.getToastMessage(), Toast.LENGTH_LONG);
                 view.hideLoading();
             }
         });

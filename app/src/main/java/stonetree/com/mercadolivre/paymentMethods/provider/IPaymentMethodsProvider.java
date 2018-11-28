@@ -1,4 +1,4 @@
-package stonetree.com.mercadolivre.provider;
+package stonetree.com.mercadolivre.paymentMethods.provider;
 
 import stonetree.com.mercadolivre.core.model.Error;
 import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethodsResponse;

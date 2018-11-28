@@ -1,4 +1,4 @@
-package stonetree.com.mercadolivre.provider;
+package stonetree.com.mercadolivre.paymentMethods.provider;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -11,6 +11,9 @@ import stonetree.com.mercadolivre.core.model.Error;
 import stonetree.com.mercadolivre.enums.Endpoint;
 import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethod;
 import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethodsResponse;
+import stonetree.com.mercadolivre.provider.CoreProvider;
+import stonetree.com.mercadolivre.provider.ICoreProvider;
+import stonetree.com.mercadolivre.utils.Collections;
 
 public class PaymentMethodsProvider extends CoreProvider {
 
@@ -31,7 +34,7 @@ public class PaymentMethodsProvider extends CoreProvider {
             @Override
             public void onSuccess(final String response) {
                 final List<PaymentMethod> paymentMethods = new Gson().fromJson(response, getJsonType());
-                if (paymentMethods.isEmpty()) {
+                if (Collections.isNullOrEmpty(paymentMethods)) {
                     callback.onFailure(Error.getDefault());
                 } else {
                     final PaymentMethodsResponse paymentMethodsResponse = new PaymentMethodsResponse();
