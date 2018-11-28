@@ -6,6 +6,8 @@ interface ICardIssuersPresenter {
 
     void onCreate();
 
+    void onResume();
+
     void storeCardIssuer(String issuerId);
 
     void proceedWithQuotasSelection();

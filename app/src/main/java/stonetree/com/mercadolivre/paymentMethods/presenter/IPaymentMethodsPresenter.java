@@ -6,6 +6,8 @@ public interface IPaymentMethodsPresenter {
 
     void onCreate();
 
+    void onResume();
+
     void storeBundle();
 
     void storePaymentMethod(String methodId);

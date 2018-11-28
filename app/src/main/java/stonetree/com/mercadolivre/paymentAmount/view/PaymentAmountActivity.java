@@ -35,6 +35,12 @@ public class PaymentAmountActivity extends CoreActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         presenter.destroyNetworkStateReceiver();

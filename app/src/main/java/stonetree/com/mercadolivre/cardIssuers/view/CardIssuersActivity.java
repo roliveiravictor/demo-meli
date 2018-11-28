@@ -33,6 +33,12 @@ public class CardIssuersActivity extends CoreActivity {
         setListeners();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
+
     public void findComponents() {
         super.findComponents();
         cardIssuerReycler = findViewById(R.id.issuers);

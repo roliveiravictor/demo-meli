@@ -37,6 +37,11 @@ public class PaymentAmountPresenter implements IPaymentAmountPresenter, INetwork
     }
 
     @Override
+    public void onResume() {
+        view.hideLoading();
+    }
+
+    @Override
     public void loadCheckout() {
         if (!Collections.isNullOrEmpty(Session.getInstance().getQuota())) {
             final String title = view.getString(R.string.checkout_title);
@@ -63,7 +68,6 @@ public class PaymentAmountPresenter implements IPaymentAmountPresenter, INetwork
             @Override
             public void onSuccess(PaymentMethodsResponse response) {
                 view.proceedToCreditCardSelection(response);
-                view.hideLoading();
             }
 
             @Override

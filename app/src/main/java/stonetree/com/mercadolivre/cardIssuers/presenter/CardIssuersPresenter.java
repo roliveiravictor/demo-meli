@@ -29,6 +29,11 @@ public class CardIssuersPresenter implements ICardIssuersPresenter {
     }
 
     @Override
+    public void onResume() {
+        view.hideLoading();
+    }
+
+    @Override
     public void storeCardIssuer(String issuerId) {
         Session.getInstance().setCardIssuer(issuerId);
     }
@@ -40,7 +45,6 @@ public class CardIssuersPresenter implements ICardIssuersPresenter {
             @Override
             public void onSuccess(QuotasSelectionResponse response) {
                 view.proceedToQuotasSelection(response);
-                view.hideLoading();
             }
 
             @Override

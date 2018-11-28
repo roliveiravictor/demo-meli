@@ -4,6 +4,8 @@ public interface IPaymentAmountPresenter {
 
     void onCreate();
 
+    void onResume();
+
     void loadCheckout();
 
     void proceedWithPayment(long amountToPay);

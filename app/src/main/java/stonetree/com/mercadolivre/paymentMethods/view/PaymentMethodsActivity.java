@@ -33,6 +33,12 @@ public class PaymentMethodsActivity extends CoreActivity {
         setListeners();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
+
     public void findComponents() {
         super.findComponents();
         paymentMethodsRecycler = findViewById(R.id.methods);

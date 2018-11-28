@@ -33,6 +33,11 @@ public class PaymentMethodsPresenter implements IPaymentMethodsPresenter {
     }
 
     @Override
+    public void onResume() {
+        view.hideLoading();
+    }
+
+    @Override
     public void storeBundle() {
         final PaymentMethodsResponse response = (PaymentMethodsResponse) view.loadBundle(Constants.PAYMENT_METHODS_RESPONSE);
         model.setPaymentMethodsResponse(response);
@@ -50,7 +55,6 @@ public class PaymentMethodsPresenter implements IPaymentMethodsPresenter {
             @Override
             public void onSuccess(CardIssuersResponse response) {
                 view.proceedToCardIssuerSelection(response);
-                view.hideLoading();
             }
 
             @Override
