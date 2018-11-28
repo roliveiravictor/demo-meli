@@ -9,6 +9,8 @@ public class Session {
     private String paymentMethod;
     private String cardIssuer;
 
+    private boolean networkOnline;
+
     public static Session getInstance() {
         if (session == null)
             session = new Session();
@@ -38,5 +40,13 @@ public class Session {
 
     public void setCardIssuer(String cardIssuer) {
         this.cardIssuer = cardIssuer;
+    }
+
+    public boolean isNetworkOnline() {
+        return networkOnline;
+    }
+
+    public void setNetworkOnline(boolean networkOnline) {
+        this.networkOnline = networkOnline;
     }
 }

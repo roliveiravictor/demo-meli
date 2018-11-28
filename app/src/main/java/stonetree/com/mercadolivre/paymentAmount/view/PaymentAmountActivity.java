@@ -36,6 +36,12 @@ public class PaymentAmountActivity extends CoreActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.destroyNetworkStateReceiver();
+    }
+
+    @Override
     public void findComponents() {
         super.findComponents();
         payButton = findViewById(R.id.pay);
@@ -64,5 +70,13 @@ public class PaymentAmountActivity extends CoreActivity {
         intent.putExtras(bundle);
 
         IntentStarterUtils.goFromWithExtraBundleTo(this, PaymentMethodsActivity.class, bundle);
+    }
+
+    public void enablePayment() {
+        payButton.setEnabled(true);
+    }
+
+    public void disablePayment() {
+        payButton.setEnabled(false);
     }
 }

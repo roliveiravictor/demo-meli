@@ -1,8 +1,11 @@
 package stonetree.com.mercadolivre.paymentAmount.presenter;
 
+import android.content.IntentFilter;
 import android.widget.Toast;
 
 import stonetree.com.mercadolivre.core.model.Error;
+import stonetree.com.mercadolivre.network.INetworkStateReceiver;
+import stonetree.com.mercadolivre.network.NetworkStateReceiver;
 import stonetree.com.mercadolivre.paymentAmount.model.PaymentAmount;
 import stonetree.com.mercadolivre.paymentAmount.view.PaymentAmountActivity;
 import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethodsResponse;
@@ -10,7 +13,7 @@ import stonetree.com.mercadolivre.provider.IPaymentMethodsProvider;
 import stonetree.com.mercadolivre.provider.PaymentMethodsProvider;
 import stonetree.com.mercadolivre.session.Session;
 
-public class PaymentAmountPresenter implements IPaymentAmountPresenter {
+public class PaymentAmountPresenter implements IPaymentAmountPresenter, INetworkStateReceiver {
 
     private final PaymentAmountActivity view;
 
@@ -23,7 +26,7 @@ public class PaymentAmountPresenter implements IPaymentAmountPresenter {
 
     @Override
     public void onCreate() {
-
+        setupNetworkStateReceiver();
     }
 
     @Override
@@ -45,5 +48,29 @@ public class PaymentAmountPresenter implements IPaymentAmountPresenter {
         });
     }
 
+    @Override
+    public void setupNetworkStateReceiver() {
+        final NetworkStateReceiver networkStateReceiver = new NetworkStateReceiver(view, this);
 
+        view.registerReceiver(networkStateReceiver, new IntentFilter(android.net.ConnectivityManager.CONNECTIVITY_ACTION));
+
+        model.setNetworkStateReceiver(networkStateReceiver);
+    }
+
+    @Override
+    public void destroyNetworkStateReceiver() {
+        final NetworkStateReceiver networkStateReceiver = model.getNetworkStateReceiver();
+        view.unregisterReceiver(networkStateReceiver);
+    }
+
+
+    @Override
+    public void onNetworkAvailable() {
+        view.enablePayment();
+    }
+
+    @Override
+    public void onNetworkUnavailable() {
+        view.disablePayment();
+    }
 }

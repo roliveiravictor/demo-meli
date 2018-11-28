@@ -1,5 +1,7 @@
 package stonetree.com.mercadolivre.core.model;
 
+import stonetree.com.mercadolivre.constants.Constants;
+
 public class Error {
 
     private int code;
@@ -28,6 +30,10 @@ public class Error {
 
     public CharSequence getToastMessage() {
         return this.getMessage();
+    }
+
+    public static Error getDefault() {
+        return new Error(Constants.DUMMY, "Avoiding Crash - Please Retry");
     }
 
 }

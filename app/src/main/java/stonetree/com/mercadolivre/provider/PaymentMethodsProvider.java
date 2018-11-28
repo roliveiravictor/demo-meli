@@ -31,9 +31,13 @@ public class PaymentMethodsProvider extends CoreProvider {
             @Override
             public void onSuccess(final String response) {
                 final List<PaymentMethod> paymentMethods = new Gson().fromJson(response, getJsonType());
-                final PaymentMethodsResponse paymentMethodsResponse = new PaymentMethodsResponse();
-                paymentMethodsResponse.getPaymentMethods().addAll(paymentMethods);
-                callback.onSuccess(paymentMethodsResponse);
+                if (paymentMethods.isEmpty()) {
+                    callback.onFailure(Error.getDefault());
+                } else {
+                    final PaymentMethodsResponse paymentMethodsResponse = new PaymentMethodsResponse();
+                    paymentMethodsResponse.getPaymentMethods().addAll(paymentMethods);
+                    callback.onSuccess(paymentMethodsResponse);
+                }
             }
 
             @Override
