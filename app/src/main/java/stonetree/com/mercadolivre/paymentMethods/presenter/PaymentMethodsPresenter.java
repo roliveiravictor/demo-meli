@@ -10,15 +10,12 @@ import stonetree.com.mercadolivre.core.model.Error;
 import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethods;
 import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethodsResponse;
 import stonetree.com.mercadolivre.paymentMethods.view.PaymentMethodsActivity;
-import stonetree.com.mercadolivre.paymentMethods.view.adapter.PaymentMethodsAdapter;
 import stonetree.com.mercadolivre.session.Session;
 import stonetree.com.mercadolivre.utils.ToastUtils;
 
 public class PaymentMethodsPresenter implements IPaymentMethodsPresenter {
 
     private final PaymentMethodsActivity view;
-
-    private PaymentMethodsAdapter paymentMethodsAdapter;
 
     private PaymentMethods model;
 

@@ -46,7 +46,7 @@ public class PaymentMethodsActivity extends CoreActivity {
 
 
     private void loadComponents() {
-        final PaymentMethodsAdapter adapter = new PaymentMethodsAdapter(this, presenter,  presenter.getPaymentMethodsResponse());
+        final PaymentMethodsAdapter adapter = new PaymentMethodsAdapter(this, presenter, presenter.getPaymentMethodsResponse());
 
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
