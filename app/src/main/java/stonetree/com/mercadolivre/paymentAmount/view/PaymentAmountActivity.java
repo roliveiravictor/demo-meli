@@ -35,7 +35,9 @@ public class PaymentAmountActivity extends CoreActivity {
         setListeners();
     }
 
-    private void findComponents() {
+    @Override
+    public void findComponents() {
+        super.findComponents();
         payButton = findViewById(R.id.pay);
         amountToPay = findViewById(R.id.amount);
     }

@@ -1,4 +1,4 @@
-package stonetree.com.mercadolivre.paymentMethods.view.adapter;
+package stonetree.com.mercadolivre.cardIssuers.view.adapter;
 
 import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;

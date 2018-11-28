@@ -24,8 +24,8 @@ public class QuotasSelectionActivity extends CoreActivity {
         setListeners();
     }
 
-    private void findComponents() {
-
+    public void findComponents() {
+        super.findComponents();
     }
 
 

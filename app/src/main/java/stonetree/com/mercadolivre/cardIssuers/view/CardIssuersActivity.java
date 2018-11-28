@@ -6,8 +6,8 @@ import android.support.v7.widget.RecyclerView;
 
 import stonetree.com.mercadolivre.R;
 import stonetree.com.mercadolivre.cardIssuers.presenter.CardIssuersPresenter;
+import stonetree.com.mercadolivre.cardIssuers.view.adapter.CardIssuersAdapter;
 import stonetree.com.mercadolivre.core.view.CoreActivity;
-import stonetree.com.mercadolivre.paymentMethods.view.adapter.CardIssuersAdapter;
 import stonetree.com.mercadolivre.quotas.view.QuotasSelectionActivity;
 import stonetree.com.mercadolivre.utils.IntentStarterUtils;
 
@@ -31,7 +31,8 @@ public class CardIssuersActivity extends CoreActivity {
         setListeners();
     }
 
-    private void findComponents() {
+    public void findComponents() {
+        super.findComponents();
         cardIssuerReycler = findViewById(R.id.issuers);
     }
 

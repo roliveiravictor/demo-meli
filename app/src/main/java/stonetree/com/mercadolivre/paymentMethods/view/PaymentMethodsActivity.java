@@ -34,7 +34,8 @@ public class PaymentMethodsActivity extends CoreActivity {
         setListeners();
     }
 
-    private void findComponents() {
+    public void findComponents() {
+        super.findComponents();
         paymentMethodsRecycler = findViewById(R.id.methods);
     }
 
