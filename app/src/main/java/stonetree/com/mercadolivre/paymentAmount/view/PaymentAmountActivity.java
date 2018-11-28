@@ -44,8 +44,12 @@ public class PaymentAmountActivity extends CoreActivity {
         payButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final long amount = Long.valueOf(amountToPay.getText().toString());
-                presenter.proceedWithPayment(amount);
+                try {
+                    final long amount = Long.valueOf(amountToPay.getText().toString());
+                    presenter.proceedWithPayment(amount);
+                } catch (NumberFormatException e) {
+                    //TODO - Nice Try =)
+                }
             }
         });
     }

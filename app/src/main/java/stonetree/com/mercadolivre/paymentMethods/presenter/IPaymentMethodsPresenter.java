@@ -10,5 +10,7 @@ public interface IPaymentMethodsPresenter {
 
     void storePaymentMethod(String methodId);
 
+    void proceedWithCardIssuers();
+
     PaymentMethodsResponse getPaymentMethodsResponse();
 }

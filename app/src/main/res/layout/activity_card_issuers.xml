@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,7 +14,7 @@
         android:visibility="invisible"
         app:SpinKit_Color="@color/colorPrimary" />
 
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -23,26 +24,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_10dp"
             android:gravity="center"
-            android:text="@string/payment_amount_amount"
+            android:text="@string/card_issuer_select"
             android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/amount"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/issuers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_10dp"
-            android:gravity="center_horizontal"
-            android:hint=""
-            android:inputType="number" />
-
-        <Button
-            android:id="@+id/pay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/margin_10dp"
             android:gravity="center"
-            android:text="@string/payment_amount_button" />
+            android:text="@string/payment_amount_amount"
+            android:textSize="18sp" />
 
     </LinearLayout>
 

@@ -26,9 +26,8 @@ public class Error {
         this.message = message;
     }
 
-    public char getToastMessage(){
-        final String messageStr = this.getMessage();
-        return messageStr.charAt(0);
+    public CharSequence getToastMessage() {
+        return this.getMessage();
     }
 
 }

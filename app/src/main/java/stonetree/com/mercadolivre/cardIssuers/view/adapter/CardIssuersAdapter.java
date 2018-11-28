@@ -10,22 +10,22 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import stonetree.com.mercadolivre.R;
-import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethod;
-import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethodsResponse;
-import stonetree.com.mercadolivre.paymentMethods.presenter.PaymentMethodsPresenter;
-import stonetree.com.mercadolivre.paymentMethods.view.PaymentMethodsActivity;
+import stonetree.com.mercadolivre.cardIssuers.model.CardIssuer;
+import stonetree.com.mercadolivre.cardIssuers.model.CardIssuersResponse;
+import stonetree.com.mercadolivre.cardIssuers.presenter.CardIssuersPresenter;
+import stonetree.com.mercadolivre.cardIssuers.view.CardIssuersActivity;
 import stonetree.com.mercadolivre.tasks.ImageDownloaderCallback;
 import stonetree.com.mercadolivre.tasks.ImageDownloaderTask;
 
-public class PaymentMethodsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class CardIssuersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private PaymentMethodsResponse response;
+    private CardIssuersResponse response;
 
-    private PaymentMethodsActivity view;
+    private CardIssuersActivity view;
 
-    private PaymentMethodsPresenter presenter;
+    private CardIssuersPresenter presenter;
 
-    public PaymentMethodsAdapter(PaymentMethodsActivity view, PaymentMethodsPresenter presenter, PaymentMethodsResponse response) {
+    public CardIssuersAdapter(CardIssuersActivity view, CardIssuersPresenter presenter, CardIssuersResponse response) {
         this.view = view;
         this.presenter = presenter;
         this.response = response;
@@ -49,28 +49,28 @@ public class PaymentMethodsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new PaymentMethodsAdapter.ViewHolder(
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.payment_card_row, parent, false));
+        return new CardIssuersAdapter.ViewHolder(
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.card_issuer_row, parent, false));
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int rowPosition) {
         final ViewHolder holder = ((ViewHolder) viewHolder);
 
-        PaymentMethod paymentMethod = response.getPaymentMethods().get(rowPosition);
+        CardIssuer cardIssuer = response.getCardIssuers().get(rowPosition);
 
-        setThumbnail(holder, paymentMethod);
-        setName(holder, paymentMethod);
-        setListener(holder, paymentMethod);
+        setThumbnail(holder, cardIssuer);
+        setName(holder, cardIssuer);
+        setListener(holder, cardIssuer);
     }
 
-    private void setListener(final ViewHolder holder, final PaymentMethod paymentMethod) {
+    private void setListener(final ViewHolder holder, final CardIssuer cardIssuer) {
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View selectedCard) {
-                final String methodId = paymentMethod.getId();
-                presenter.storePaymentMethod(methodId);
-                presenter.proceedWithCardIssuers();
+                final String issuerId = cardIssuer.getId();
+                presenter.storeCardIssuer(issuerId);
+                presenter.proceedWithQuotasSelection();
             }
         });
 
@@ -89,9 +89,9 @@ public class PaymentMethodsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         });
     }
 
-    private void setThumbnail(ViewHolder holder, PaymentMethod paymentMethod) {
+    private void setThumbnail(ViewHolder holder, CardIssuer cardIssuer) {
         final ImageDownloaderCallback imageDownloaderCallback = getImageDownloaderCallback(holder.thumbnail);
-        new ImageDownloaderTask(imageDownloaderCallback, paymentMethod.getThumbnailUrl()).execute();
+        new ImageDownloaderTask(imageDownloaderCallback, cardIssuer.getThumbnailUrl()).execute();
     }
 
     private ImageDownloaderCallback getImageDownloaderCallback(final ImageView thumbnail) {
@@ -103,8 +103,8 @@ public class PaymentMethodsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         };
     }
 
-    private void setName(ViewHolder holder, PaymentMethod paymentMethod) {
-        holder.name.setText(paymentMethod.getName());
+    private void setName(ViewHolder holder, CardIssuer cardIssuer) {
+        holder.name.setText(cardIssuer.getName());
     }
 
 
@@ -120,7 +120,7 @@ public class PaymentMethodsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     @Override
     public int getItemCount() {
-        return response.getPaymentMethods().size();
+        return response.getCardIssuers().size();
     }
 
 }

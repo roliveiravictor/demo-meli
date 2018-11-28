@@ -4,5 +4,6 @@
     <string name="payment_amount_hint">R$ 0.00</string>
     <string name="payment_amount_button">Pay</string>
     <string name="payment_methods_select">Select Payment Method</string>
+    <string name="card_issuer_select">Select Card Issuer</string>
     <string name="quotas_selection_select">Select Quotas Amount</string>
 </resources>

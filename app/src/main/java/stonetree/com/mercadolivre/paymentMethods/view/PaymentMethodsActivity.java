@@ -1,14 +1,17 @@
 package stonetree.com.mercadolivre.paymentMethods.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import stonetree.com.mercadolivre.R;
+import stonetree.com.mercadolivre.cardIssuers.model.CardIssuersResponse;
+import stonetree.com.mercadolivre.cardIssuers.view.CardIssuersActivity;
+import stonetree.com.mercadolivre.constants.Constants;
 import stonetree.com.mercadolivre.core.view.CoreActivity;
 import stonetree.com.mercadolivre.paymentMethods.presenter.PaymentMethodsPresenter;
 import stonetree.com.mercadolivre.paymentMethods.view.adapter.PaymentMethodsAdapter;
-import stonetree.com.mercadolivre.quotas.view.QuotasSelectionActivity;
 import stonetree.com.mercadolivre.utils.IntentStarterUtils;
 
 public class PaymentMethodsActivity extends CoreActivity {
@@ -50,8 +53,14 @@ public class PaymentMethodsActivity extends CoreActivity {
 
     }
 
-    public void proceedToQuotasSelection() {
-        IntentStarterUtils.goFromTo(this, QuotasSelectionActivity.class);
+    public void proceedToCardIssuerSelection(CardIssuersResponse response) {
+        final Intent intent = new Intent();
+        final Bundle bundle = new Bundle();
+
+        bundle.putSerializable(Constants.CARD_ISSUERS_RESPONSE, response);
+        intent.putExtras(bundle);
+
+        IntentStarterUtils.goFromWithExtraBundleTo(this, CardIssuersActivity.class, bundle);
     }
 
 }

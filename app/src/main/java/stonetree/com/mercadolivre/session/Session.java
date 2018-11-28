@@ -7,6 +7,7 @@ public class Session {
     private long amountToPay;
 
     private String paymentMethod;
+    private String cardIssuer;
 
     public static Session getInstance() {
         if (session == null)
@@ -29,5 +30,13 @@ public class Session {
 
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public String getCardIssuer() {
+        return cardIssuer;
+    }
+
+    public void setCardIssuer(String cardIssuer) {
+        this.cardIssuer = cardIssuer;
     }
 }

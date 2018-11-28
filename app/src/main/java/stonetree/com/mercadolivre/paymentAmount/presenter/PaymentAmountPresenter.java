@@ -2,7 +2,6 @@ package stonetree.com.mercadolivre.paymentAmount.presenter;
 
 import android.widget.Toast;
 
-import stonetree.com.mercadolivre.constants.Constants;
 import stonetree.com.mercadolivre.core.model.Error;
 import stonetree.com.mercadolivre.paymentAmount.model.PaymentAmount;
 import stonetree.com.mercadolivre.paymentAmount.view.PaymentAmountActivity;
@@ -29,16 +28,19 @@ public class PaymentAmountPresenter implements IPaymentAmountPresenter {
 
     @Override
     public void proceedWithPayment(long amountToPay) {
+        view.showLoading();
         Session.getInstance().setAmountToPay(amountToPay);
         new PaymentMethodsProvider().getPaymentMethods(new IPaymentMethodsProvider() {
             @Override
             public void onSuccess(PaymentMethodsResponse response) {
+                view.hideLoading();
                 view.proceedToCreditCardSelection(response);
             }
 
             @Override
             public void onFailure(Error response) {
-                Toast.makeText(view.getApplicationContext(), response.getToastMessage(), Constants.TWO_SECONDS);
+                Toast.makeText(view.getApplicationContext(), response.getToastMessage(), Toast.LENGTH_LONG);
+                view.hideLoading();
             }
         });
     }

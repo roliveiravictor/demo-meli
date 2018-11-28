@@ -64,9 +64,9 @@ public class CoreRequestTask extends AsyncTask<String, Void, CoreResponse> {
     @Override
     protected void onPostExecute(CoreResponse coreResponse) {
         if (isCancelled())
-            callback.onFailure(coreResponse.getError());
+            callback.onFailure(new Error(Constants.DUMMY, "Avoiding Crash - Please Retry"));
 
-        if(Collections.isNullOrEmpty(coreResponse.getResult()))
+        if (Collections.isNullOrEmpty(coreResponse.getResult()))
             callback.onFailure(new Error(Constants.DUMMY, "Avoiding Crash - Please Retry"));
 
         callback.onSuccess(coreResponse.getResult());
