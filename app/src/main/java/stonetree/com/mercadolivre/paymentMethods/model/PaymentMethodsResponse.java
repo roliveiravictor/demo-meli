@@ -1,12 +1,13 @@
-package stonetree.com.mercadolivre.payment.model;
+package stonetree.com.mercadolivre.paymentMethods.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaymentResponse {
+public class PaymentMethodsResponse implements Serializable {
 
     @Expose
     @SerializedName("payment_methods")
@@ -19,4 +20,5 @@ public class PaymentResponse {
     public void setPaymentMethods(List<PaymentMethod> paymentMethods) {
         this.paymentMethods = paymentMethods;
     }
+
 }

@@ -8,8 +8,10 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import stonetree.com.mercadolivre.constants.Constants;
 import stonetree.com.mercadolivre.provider.CoreProvider;
 import stonetree.com.mercadolivre.provider.ICoreProvider;
+import stonetree.com.mercadolivre.utils.Collections;
 
 import static java.net.HttpURLConnection.HTTP_OK;
 
@@ -63,9 +65,11 @@ public class CoreRequestTask extends AsyncTask<String, Void, CoreResponse> {
     protected void onPostExecute(CoreResponse coreResponse) {
         if (isCancelled())
             callback.onFailure(coreResponse.getError());
-        else
-            callback.onSuccess(coreResponse.getResult());
 
+        if(Collections.isNullOrEmpty(coreResponse.getResult()))
+            callback.onFailure(new Error(Constants.DUMMY, "Avoiding Crash - Please Retry"));
+
+        callback.onSuccess(coreResponse.getResult());
     }
 
     private Error getError(HttpURLConnection urlConnection) throws IOException {

@@ -8,10 +8,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import stonetree.com.mercadolivre.core.model.Error;
-import stonetree.com.mercadolivre.payment.model.PaymentResponse;
+import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethodsResponse;
 
 @RunWith(AndroidJUnit4.class)
-public class PaymentProviderTest extends CoreProviderTest {
+public class PaymentAmountProviderTest extends CoreProviderTest {
 
     @Before
     public void setTestData() {
@@ -20,9 +20,9 @@ public class PaymentProviderTest extends CoreProviderTest {
 
     @Test
     public void getPaymentTest() {
-        new PaymentProvider().getPayment(new IPaymentProvider() {
+        new PaymentMethodsProvider().getPaymentMethods(new IPaymentMethodsProvider() {
             @Override
-            public void onSuccess(PaymentResponse response) {
+            public void onSuccess(PaymentMethodsResponse response) {
                 executeCoreSuccess(response);
             }
 
