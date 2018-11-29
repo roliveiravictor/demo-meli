@@ -45,7 +45,7 @@ public class DialogUtils {
 
         final Session session = Session.getInstance();
 
-        String money = Constants.MONEY + String.valueOf(session.getAmountToPay());
+        String money = Constants.MONEY_LABEL + String.valueOf(session.getAmountToPay());
         amount.setText(money);
 
         quota.setText(session.getQuota());

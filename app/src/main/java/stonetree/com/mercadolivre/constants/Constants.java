@@ -4,6 +4,7 @@ public class Constants {
 
 
     public static final int DUMMY = -1;
+    public static final int FIRST_INDEX = 0;
 
     public static final CharSequence EMPTY_SEQUENCE = "";
 
@@ -12,5 +13,8 @@ public class Constants {
     public static final String CARD_ISSUERS_RESPONSE = "CARD_ISSUERS_RESPONSE";
     public static final String QUOTAS_SELECTION_RESPONSE = "QUOTAS_SELECTION_RESPONSE";
     public static final String QUERY_SELECTOR = "$:#";
-    public static final String MONEY = "R$ ";
+    public static final String MONEY_LABEL = "R$ ";
+    public static final String CENTS = ".00";
+    public static final String CENTS_FIRST_DELETE = ".0";
+    public static final String ZERO_STRING = "0";
 }

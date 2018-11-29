@@ -12,6 +12,7 @@ import stonetree.com.mercadolivre.paymentAmount.presenter.PaymentAmountPresenter
 import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethodsResponse;
 import stonetree.com.mercadolivre.paymentMethods.view.PaymentMethodsActivity;
 import stonetree.com.mercadolivre.utils.IntentStarterUtils;
+import stonetree.com.mercadolivre.watcher.PriceTextWatcher;
 
 public class PaymentAmountActivity extends CoreActivity {
 
@@ -54,14 +55,17 @@ public class PaymentAmountActivity extends CoreActivity {
     }
 
     private void setListeners() {
+        amountToPay.addTextChangedListener(new PriceTextWatcher(amountToPay));
+
         payButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    final long amount = Long.valueOf(amountToPay.getText().toString());
+                    final String price = amountToPay.getText().toString();
+                    final long amount = Long.valueOf(presenter.getFormattedPrice(price));
                     presenter.proceedWithPayment(amount);
                 } catch (NumberFormatException e) {
-                    //TODO - Nice Try =)
+
                 }
             }
         });

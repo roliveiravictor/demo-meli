@@ -17,6 +17,7 @@ import stonetree.com.mercadolivre.paymentMethods.provider.PaymentMethodsProvider
 import stonetree.com.mercadolivre.session.Session;
 import stonetree.com.mercadolivre.utils.Collections;
 import stonetree.com.mercadolivre.utils.DialogUtils;
+import stonetree.com.mercadolivre.utils.MoneyUtils;
 import stonetree.com.mercadolivre.utils.ToastUtils;
 
 public class PaymentAmountPresenter implements IPaymentAmountPresenter, INetworkStateReceiver {
@@ -91,6 +92,11 @@ public class PaymentAmountPresenter implements IPaymentAmountPresenter, INetwork
     public void destroyNetworkStateReceiver() {
         final NetworkStateReceiver networkStateReceiver = model.getNetworkStateReceiver();
         view.unregisterReceiver(networkStateReceiver);
+    }
+
+    @Override
+    public String getFormattedPrice(String price) {
+        return MoneyUtils.cleanMask(price);
     }
 
 

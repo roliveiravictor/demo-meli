@@ -13,4 +13,6 @@ public interface IPaymentAmountPresenter {
     void setupNetworkStateReceiver();
 
     void destroyNetworkStateReceiver();
+
+    String getFormattedPrice(String price);
 }
