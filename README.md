@@ -25,16 +25,16 @@ IDE: Android Studio 3.2.1
 
 ### Prints ###
 
-   ![ml1](https://bitbucket.org/roliveiravictor/demo-mercado-livre/src/master/prints/ml1.png)
+   ![ml1](https://bitbucket.org/roliveiravictor/demo-mercado-livre/raw/master/prints/ml1.png)
+      
+   ![ml2](https://bitbucket.org/roliveiravictor/demo-mercado-livre/raw/master/prints/ml2.png)
+      
+   ![ml3](https://bitbucket.org/roliveiravictor/demo-mercado-livre/raw/master/prints/ml3.png)
+      
+   ![ml4](https://bitbucket.org/roliveiravictor/demo-mercado-livre/raw/master/prints/ml4.png)
    
-   ![ml2](https://bitbucket.org/roliveiravictor/demo-mercado-livre/src/master/prints/ml2.png)
+   ![ml5](https://bitbucket.org/roliveiravictor/demo-mercado-livre/raw/master/prints/ml5.png)
    
-   ![ml3](https://bitbucket.org/roliveiravictor/demo-mercado-livre/src/master/prints/ml3.png)
+   ![ml6](https://bitbucket.org/roliveiravictor/demo-mercado-livre/raw/master/prints/ml6.png)
    
-   ![ml4](https://bitbucket.org/roliveiravictor/demo-mercado-livre/src/master/prints/ml4.png)
-   
-   ![ml5](https://bitbucket.org/roliveiravictor/demo-mercado-livre/src/master/prints/ml5.png)
-   
-   ![ml6](https://bitbucket.org/roliveiravictor/demo-mercado-livre/src/master/prints/ml6.png)
-   
-   ![ml7](https://bitbucket.org/roliveiravictor/demo-mercado-livre/src/master/prints/ml7.png)
+   ![ml7](https://bitbucket.org/roliveiravictor/demo-mercado-livre/raw/master/prints/ml7.png)
