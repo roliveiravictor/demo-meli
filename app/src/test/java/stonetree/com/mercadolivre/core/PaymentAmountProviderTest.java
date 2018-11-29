@@ -1,18 +1,17 @@
-package stonetree.com.mercadolivre.provider;
+package stonetree.com.mercadolivre.core;
 
-
-import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 
 import stonetree.com.mercadolivre.core.model.Error;
 import stonetree.com.mercadolivre.paymentMethods.model.PaymentMethodsResponse;
 import stonetree.com.mercadolivre.paymentMethods.provider.IPaymentMethodsProvider;
 import stonetree.com.mercadolivre.paymentMethods.provider.PaymentMethodsProvider;
 
-@RunWith(AndroidJUnit4.class)
+@RunWith(RobolectricTestRunner.class)
 public class PaymentAmountProviderTest extends CoreProviderTest {
 
     @Before

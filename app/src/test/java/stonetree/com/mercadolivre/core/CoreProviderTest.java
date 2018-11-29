@@ -1,4 +1,4 @@
-package stonetree.com.mercadolivre.provider;
+package stonetree.com.mercadolivre.core;
 
 import android.util.Log;
 
