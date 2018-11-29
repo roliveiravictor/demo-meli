@@ -25,10 +25,16 @@ IDE: Android Studio 3.2.1
 
 ### Prints ###
 
-   ![glitch1.jpg](https://bitbucket.org/repo/RqpGRk/images/336663763-glitch1.jpg)
-
-
-   ![glitch2.jpg](https://bitbucket.org/repo/RqpGRk/images/3847630999-glitch2.jpg)
-
-
-   ![glitch3.jpg](https://bitbucket.org/repo/RqpGRk/images/3750587286-glitch3.jpg)
+   ![ml1](https://bitbucket.org/roliveiravictor/demo-mercado-livre/src/master/prints/ml1.png)
+   
+   ![ml2](https://bitbucket.org/roliveiravictor/demo-mercado-livre/src/master/prints/ml2.png)
+   
+   ![ml3](https://bitbucket.org/roliveiravictor/demo-mercado-livre/src/master/prints/ml3.png)
+   
+   ![ml4](https://bitbucket.org/roliveiravictor/demo-mercado-livre/src/master/prints/ml4.png)
+   
+   ![ml5](https://bitbucket.org/roliveiravictor/demo-mercado-livre/src/master/prints/ml5.png)
+   
+   ![ml6](https://bitbucket.org/roliveiravictor/demo-mercado-livre/src/master/prints/ml6.png)
+   
+   ![ml7](https://bitbucket.org/roliveiravictor/demo-mercado-livre/src/master/prints/ml7.png)
